@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alexa\\source\\repos\\Snake\\Snake\\Snake.csproj",
+      "projectUniqueName": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\Snake.csproj",
       "projectName": "Snake",
-      "projectPath": "C:\\Users\\alexa\\source\\repos\\Snake\\Snake\\Snake.csproj",
+      "projectPath": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\Snake.csproj",
       "packagesPath": "C:\\Users\\alexa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alexa\\source\\repos\\Snake\\Snake\\obj\\",
+      "outputPath": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\VisualStudio\\2022\\Shared\\NuGetPackages"
