@@ -16,5 +16,23 @@ namespace Snake
             this.x_position = x_position;
             this.y_position = y_position;
         }
+
+        // Getter und Setter
+        public int GetXPosition()
+        {
+            return x_position;
+        }
+        public void SetXPosition(int x_position)
+        {
+            this.x_position = x_position;
+        }
+        public int GetYPosition()
+        {
+            return y_position;
+        }
+        public void SetYPosition(int y_position)
+        {
+            this.y_position = y_position;
+        }
     }
 }

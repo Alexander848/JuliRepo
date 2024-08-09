@@ -15,12 +15,20 @@ namespace Snake
 
         Graphics g;
         Pen selPen;
+        GUIData guiData = new GUIData();
+
+        Snake snake;
+
+        int tempFun = 0;
 
         public Game()
         {
             InitializeComponent();
+
             g = this.CreateGraphics();
             selPen = new Pen(Color.Blue);
+
+            snake = new Snake();
         }
 
         private void Game_Load(object sender, EventArgs e)
@@ -32,16 +40,15 @@ namespace Snake
         public async Task StartGame()
         {
             int i = 0;
-            while (i < 20)
+            while (true)
             {
                 /*Task drawRectangleTask = DrawRectangle(i);
                 await drawRectangleTask;*/
 
-                Task drawSnake = DrawSnake();
+                Task drawSnake = UpdateSnakeMovement();
                 await drawSnake;
 
                 Thread.Sleep(100);
-                i++;
             }
             
         }
@@ -53,11 +60,77 @@ namespace Snake
             return Task.CompletedTask;
         }
 
-        public Task DrawSnake()
+        public Task UpdateSnakeMovement()
         {
-            g.DrawRectangle
+            if (tempFun == 3)
+            {
+                if (snake.GetMoveDirection() == Direction.left)
+                {
+                    snake.SetMoveDirection(Direction.top);
+                } else if (snake.GetMoveDirection() == Direction.top) {
+                    snake.SetMoveDirection(Direction.right);
+                } else if (snake.GetMoveDirection() == Direction.right){
+                    snake.SetMoveDirection(Direction.bottom);
+                } else if (snake.GetMoveDirection() == Direction.bottom) {
+                    snake.SetMoveDirection(Direction.left);
+                }
+
+                tempFun = 0;
+            } else
+            {
+                tempFun++;
+            }
+
+            g.Clear(Color.White);
+
+            MoveSnakeBodyOneStep();
+
+            foreach(SnakeBodyPart snakePart in snake.GetBody())
+            {
+                g.DrawRectangle(selPen, snakePart.GetXPosition(), snakePart.GetYPosition(), guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+            }
 
             return Task.CompletedTask;
+        }
+
+        // TODO: Wenn Schlange an Fensterrand läuft, wird es vrrstl Fehler geben
+        // Moves the whole snakebody one step forward and the first element in the direction the snake is moving next
+        private void MoveSnakeBodyOneStep()
+        {
+            int previousBodyPartX = 0;
+            int previousBodyPartY = 0;
+
+            foreach (SnakeBodyPart snakePart in snake.GetBody())
+            {
+                int xPositionPlaceholder = snakePart.GetXPosition();
+                int yPositionPlaceholder = snakePart.GetYPosition();
+
+                if (snakePart != snake.GetBody().First())
+                {
+                    snakePart.SetXPosition(previousBodyPartX);
+                    snakePart.SetYPosition(previousBodyPartY);
+                } else
+                {
+                    switch (snake.GetMoveDirection())
+                    {
+                        case Direction.top:
+                            snakePart.SetYPosition(snakePart.GetYPosition() - guiData.GetStandartRectangleHeight());
+                            break;
+                        case Direction.bottom:
+                            snakePart.SetYPosition(snakePart.GetYPosition() + guiData.GetStandartRectangleHeight());
+                            break;
+                        case Direction.left:
+                            snakePart.SetXPosition(snakePart.GetXPosition() - guiData.GetStandartRectangleWidth());
+                            break;
+                        default:
+                            snakePart.SetXPosition(snakePart.GetXPosition() + guiData.GetStandartRectangleWidth());
+                            break;
+                    }
+                }
+
+                previousBodyPartX = xPositionPlaceholder;
+                previousBodyPartY = yPositionPlaceholder;
+            }
         }
     }
 }
