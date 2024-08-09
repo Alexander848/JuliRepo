@@ -26,6 +26,7 @@ namespace Snake
             game.FormClosing += delegate { Application.Exit(); };
             game.Show();
             this.Hide();
+            game.StartGame();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
