@@ -1,96 +1,113 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 
-namespace Snake
+using Microsoft.VisualBasic;
+using SnakeGame.GameElements;
+
+namespace SnakeGame
 {
-    public partial class Game : Form
-    {
+    public partial class Game : Form { 
 
-        Graphics g;
-        Pen selPen;
-        GUIData guiData = new GUIData();
+        private Graphics g;
+        private SolidBrush snakeBrush;
+        private SolidBrush rockBrush;
+        private SolidBrush foodBrush;
+        private GUIData guiData = new GUIData();
+        private Snake snake;
+        private Board board;
 
-        Snake snake;
+        int testIterator = 0;
 
-        int tempFun = 0;
+        private System.Windows.Forms.Timer timer;
 
         public Game()
         {
             InitializeComponent();
 
-            g = this.CreateGraphics();
-            selPen = new Pen(Color.Blue);
+            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
 
+            g = this.CreateGraphics();
+            snakeBrush = new SolidBrush(Color.Blue);
+            rockBrush = new SolidBrush(Color.Gray);
+            foodBrush = new SolidBrush(Color.Red);
+
+            board = new Board();
             snake = new Snake();
+            PlaceSnakeOnBoard();
+
+            timer = new System.Windows.Forms.Timer();
         }
 
+        // Setup Game refresh interval and paint initial board(without snake)
         private void Game_Load(object sender, EventArgs e)
         {
+            timer.Tick += new EventHandler(TimerEventProcessor);
+            timer.Interval = 100;
+            timer.Start();
+
+            board.FillBoard();
         }
 
-
-        //CONTINUE Muss responsive während zeichnen sein
-        public async Task StartGame()
+        // Event that occurs every time the timer sets off an event
+        private void TimerEventProcessor(Object? sender, EventArgs e)
         {
-            int i = 0;
-            while (true)
+            UpdateSnakeMovement();
+        }
+
+        //Initially places snake on board
+        private void PlaceSnakeOnBoard()
+        {
+            if (snake != null)
             {
-                /*Task drawRectangleTask = DrawRectangle(i);
-                await drawRectangleTask;*/
-
-                Task drawSnake = UpdateSnakeMovement();
-                await drawSnake;
-
-                Thread.Sleep(100);
-            }
-            
-        }
-
-        public Task DrawRectangle(int i)
-        {
-            g.DrawRectangle(selPen, 10+5*i, 10+5*i, 50, 50);
-
-            return Task.CompletedTask;
-        }
-
-        public Task UpdateSnakeMovement()
-        {
-            if (tempFun == 3)
-            {
-                if (snake.GetMoveDirection() == Direction.left)
+                foreach (SnakeBodyPart part in snake.GetBody())
                 {
-                    snake.SetMoveDirection(Direction.top);
-                } else if (snake.GetMoveDirection() == Direction.top) {
-                    snake.SetMoveDirection(Direction.right);
-                } else if (snake.GetMoveDirection() == Direction.right){
-                    snake.SetMoveDirection(Direction.bottom);
-                } else if (snake.GetMoveDirection() == Direction.bottom) {
-                    snake.SetMoveDirection(Direction.left);
+                    board.boardElements[part.xPosition / guiData.GetStandartRectangleWidth()][part.yPosition / guiData.GetStandartRectangleHeight()] = part;
                 }
+            }
+        }
 
-                tempFun = 0;
-            } else
+        public void UpdateSnakeMovement()
+        {
+            testIterator++;
+
+            if(testIterator == 5)
             {
-                tempFun++;
+                PlaceFood();
+                testIterator = 0;
             }
 
-            g.Clear(Color.White);
+            PaintBoard();
 
             MoveSnakeBodyOneStep();
 
-            foreach(SnakeBodyPart snakePart in snake.GetBody())
-            {
-                g.DrawRectangle(selPen, snakePart.GetXPosition(), snakePart.GetYPosition(), guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
-            }
+            CheckForCollision();
 
-            return Task.CompletedTask;
+            foreach (SnakeBodyPart snakePart in snake.GetBody())
+            {
+                g.FillRectangle(snakeBrush, snakePart.xPosition, snakePart.yPosition, guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+            }
+        }
+
+        // Clears the Board and repaints rocks
+        private void PaintBoard()
+        {
+            g.Clear(Color.White);
+            GameElement[][] boardElements = board.boardElements;
+
+            for (int i = 0; i < boardElements.Length; i++)
+            {
+                for (int j = 0; j < boardElements[i].Length; j++)
+                {
+                    if (boardElements[i][j] != null && boardElements[i][j].GetType() == typeof(Rock))
+                    {
+                        g.FillRectangle(rockBrush, i* guiData.GetStandartRectangleWidth(), j* guiData.GetStandartRectangleHeight(),
+                            guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                    } else if(boardElements[i][j] != null && boardElements[i][j].GetType() == typeof(Food))
+                    {
+                        g.FillRectangle(foodBrush, i * guiData.GetStandartRectangleWidth(), j * guiData.GetStandartRectangleHeight(),
+                            guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                    }
+                }
+            }
         }
 
         // TODO: Wenn Schlange an Fensterrand läuft, wird es vrrstl Fehler geben
@@ -100,36 +117,94 @@ namespace Snake
             int previousBodyPartX = 0;
             int previousBodyPartY = 0;
 
+            // Iterate SnakeBodyParts, move them all one forward and add to board
             foreach (SnakeBodyPart snakePart in snake.GetBody())
             {
-                int xPositionPlaceholder = snakePart.GetXPosition();
-                int yPositionPlaceholder = snakePart.GetYPosition();
+                int xPositionPlaceholder = snakePart.xPosition;
+                int yPositionPlaceholder = snakePart.yPosition;
 
+                //Elements in the middle
                 if (snakePart != snake.GetBody().First())
                 {
-                    snakePart.SetXPosition(previousBodyPartX);
-                    snakePart.SetYPosition(previousBodyPartY);
-                } else
+                    snakePart.xPosition = previousBodyPartX;
+                    snakePart.yPosition = previousBodyPartY;
+                }
+                //First element
+                else
                 {
                     switch (snake.GetMoveDirection())
                     {
                         case Direction.top:
-                            snakePart.SetYPosition(snakePart.GetYPosition() - guiData.GetStandartRectangleHeight());
+                            snakePart.yPosition = snakePart.yPosition - guiData.GetStandartRectangleHeight();
                             break;
                         case Direction.bottom:
-                            snakePart.SetYPosition(snakePart.GetYPosition() + guiData.GetStandartRectangleHeight());
+                            snakePart.yPosition = snakePart.yPosition + guiData.GetStandartRectangleHeight();
                             break;
                         case Direction.left:
-                            snakePart.SetXPosition(snakePart.GetXPosition() - guiData.GetStandartRectangleWidth());
+                            snakePart.xPosition = snakePart.xPosition - guiData.GetStandartRectangleWidth();
                             break;
                         default:
-                            snakePart.SetXPosition(snakePart.GetXPosition() + guiData.GetStandartRectangleWidth());
+                            snakePart.xPosition = snakePart.xPosition + guiData.GetStandartRectangleWidth();
                             break;
                     }
+
+                    snake.SetLastStepDirection(snake.GetMoveDirection());
+                    board.boardElements[snakePart.xPosition / guiData.GetStandartRectangleWidth()][snakePart.yPosition / guiData.GetStandartRectangleHeight()] = snakePart;
                 }
+
+                // remove last element from board
+                board.boardElements[previousBodyPartX / guiData.GetStandartRectangleWidth()][previousBodyPartY / guiData.GetStandartRectangleHeight()]
+                    = new EmptyArea(previousBodyPartX, previousBodyPartY);
 
                 previousBodyPartX = xPositionPlaceholder;
                 previousBodyPartY = yPositionPlaceholder;
+            }
+        }
+
+        private void CheckForCollision()
+        {
+            //TODO
+        }
+
+        private void PlaceFood()
+        {
+            GameElement[][] elements = board.boardElements;
+            bool foodPlaced = false;
+            Random rnd = new Random();
+            
+            //Tries to randomly find an empty space on board to place fruit
+            while (!foodPlaced)
+            {
+                int xCoordinate = rnd.Next(0, elements.Length);
+                int yCoordinate = rnd.Next(0, elements[0].Length);
+
+                if (elements[xCoordinate][yCoordinate].GetType() == typeof(EmptyArea))
+                {
+                    elements[xCoordinate][yCoordinate] = new Food(xCoordinate * guiData.GetStandartRectangleWidth(), yCoordinate * guiData.GetStandartRectangleHeight());
+                    foodPlaced = true;
+                }
+            }
+        }
+
+        // Handles KeyPressed Events: Sets snake direction
+        private void Game_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Snake Movement
+            if ((e.KeyCode == Keys.S || e.KeyCode == Keys.Down) && snake.GetLastStepDirection() != Direction.top)
+            {
+                snake.SetMoveDirection(Direction.bottom);
+            }
+            else if ((e.KeyCode == Keys.A || e.KeyCode == Keys.Left) && snake.GetLastStepDirection() != Direction.right)
+            {
+                snake.SetMoveDirection(Direction.left);
+            }
+            else if ((e.KeyCode == Keys.W || e.KeyCode == Keys.Up) && snake.GetLastStepDirection() != Direction.bottom)
+            {
+                snake.SetMoveDirection(Direction.top);
+            }
+            else if ((e.KeyCode == Keys.D || e.KeyCode == Keys.Right) && snake.GetLastStepDirection() != Direction.left)
+            {
+                snake.SetMoveDirection(Direction.right);
             }
         }
     }

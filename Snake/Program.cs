@@ -1,4 +1,4 @@
-namespace Snake
+namespace SnakeGame
 {
     internal static class Program
     {

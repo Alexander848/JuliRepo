@@ -9,18 +9,19 @@ enum Direction
     top, bottom, left, right
 }
 
-namespace Snake
+namespace SnakeGame.GameElements
 {
     internal class Snake
     {
         private LinkedList<SnakeBodyPart> body;
         private Direction moveDirection;
+        private Direction lastStepDirection;
 
         public Snake()
         {
-            this.moveDirection = Direction.right;
+            moveDirection = Direction.right;
 
-            this.body = new LinkedList<SnakeBodyPart>();
+            body = new LinkedList<SnakeBodyPart>();
             InitSnake();
         }
 
@@ -34,19 +35,27 @@ namespace Snake
         //Getter und Setter
         public LinkedList<SnakeBodyPart> GetBody()
         {
-            return this.body;
+            return body;
         }
         public void SetBodyPart(LinkedList<SnakeBodyPart> bodyPart)
         {
-            this.body = bodyPart;
+            body = bodyPart;
         }
         public Direction GetMoveDirection()
         {
-            return this.moveDirection;
+            return moveDirection;
         }
         public void SetMoveDirection(Direction moveDirection)
         {
             this.moveDirection = moveDirection;
+        }
+        public Direction GetLastStepDirection()
+        {
+            return lastStepDirection;
+        }
+        public void SetLastStepDirection(Direction lastStepDirection)
+        {
+            this.lastStepDirection = lastStepDirection;
         }
     }
 }

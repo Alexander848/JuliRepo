@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace SnakeGame
 {
     partial class MainMenu
     {

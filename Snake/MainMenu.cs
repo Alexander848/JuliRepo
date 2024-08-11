@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Snake
+namespace SnakeGame
 {
     public partial class MainMenu : Form
     {
@@ -26,7 +26,6 @@ namespace Snake
             game.FormClosing += delegate { Application.Exit(); };
             game.Show();
             this.Hide();
-            game.StartGame();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)

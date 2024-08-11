@@ -1,4 +1,4 @@
-﻿namespace Snake
+﻿namespace SnakeGame
 {
     partial class Game
     {
@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
             // 
             // Game
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            CenterToScreen();
+            KeyPreview = true;
             Name = "Game";
             Text = "Snake";
             Load += Game_Load;
+            KeyDown += Game_KeyDown;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
