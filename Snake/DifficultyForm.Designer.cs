@@ -89,6 +89,7 @@
             Controls.Add(lblSelectDiff);
             Name = "DifficultyForm";
             Text = "DifficultyForm";
+            Load += DifficultyForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

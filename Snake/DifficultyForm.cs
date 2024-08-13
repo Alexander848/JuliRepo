@@ -25,6 +25,11 @@ namespace SnakeGame
             game = new Game(mainMenu, Difficulty.Easy);
         }
 
+        private void DifficultyForm_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
+
         private void btnDiffEasy_Click(object sender, EventArgs e)
         {
             mainMenu.Hide();

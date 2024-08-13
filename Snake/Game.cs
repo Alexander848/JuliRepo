@@ -49,6 +49,8 @@ namespace SnakeGame
         // Setup Game refresh interval and paint initial board(without snake)
         private void Game_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
+
             timer.Tick += new EventHandler(TimerEventProcessor);
 
             if (difficulty == Difficulty.Hard)

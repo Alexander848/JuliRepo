@@ -14,6 +14,11 @@ namespace SnakeGame
             this.game = game;
         }
 
+        private void PauseForm_Load(object sender, EventArgs e)
+        {
+            this.CenterToScreen();
+        }
+
         private void btnContinue_Click(object sender, EventArgs e)
         {
             game.timer.Start();

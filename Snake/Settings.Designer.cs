@@ -49,6 +49,7 @@
             Controls.Add(lblResolution);
             Name = "Settings";
             Text = "Settings";
+            Load += Settings_Load;
             ResumeLayout(false);
             PerformLayout();
         }

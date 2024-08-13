@@ -21,6 +21,7 @@ namespace SnakeGame
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
+            this.CenterToScreen();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)

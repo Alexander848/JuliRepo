@@ -75,6 +75,7 @@
             Controls.Add(label1);
             Name = "PauseForm";
             Text = "PauseForm";
+            Load += PauseForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
