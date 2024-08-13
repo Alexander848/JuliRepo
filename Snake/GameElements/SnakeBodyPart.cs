@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnakeGame.GameElements.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,9 @@ namespace SnakeGame.GameElements
     internal class SnakeBodyPart : GameElement
     {
 
-        public SnakeBodyPart(int xPosition, int yPosition) : base(xPosition, yPosition)
+        public SnakeBodyPart(Position position) : base(position)
         {
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+            this.position = position;
         }
     }
 }

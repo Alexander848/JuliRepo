@@ -1,6 +1,6 @@
 ﻿namespace SnakeGame
 {
-    partial class MainMenu
+    partial class Settings
     {
         /// <summary>
         /// Required designer variable.
@@ -28,46 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnStartGame = new Button();
-            btnSettings = new Button();
+            lblResolution = new Label();
             SuspendLayout();
             // 
-            // btnStartGame
+            // lblResolution
             // 
-            btnStartGame.Location = new Point(217, 84);
-            btnStartGame.Name = "btnStartGame";
-            btnStartGame.Size = new Size(350, 187);
-            btnStartGame.TabIndex = 0;
-            btnStartGame.Text = "Start Game";
-            btnStartGame.UseVisualStyleBackColor = true;
-            btnStartGame.Click += btnStartGame_Click;
+            lblResolution.AutoSize = true;
+            lblResolution.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblResolution.Location = new Point(313, 105);
+            lblResolution.Name = "lblResolution";
+            lblResolution.Size = new Size(136, 32);
+            lblResolution.TabIndex = 1;
+            lblResolution.Text = "Resolution";
             // 
-            // btnSettings
-            // 
-            btnSettings.Location = new Point(217, 293);
-            btnSettings.Name = "btnSettings";
-            btnSettings.Size = new Size(347, 128);
-            btnSettings.TabIndex = 1;
-            btnSettings.Text = "Settings";
-            btnSettings.UseVisualStyleBackColor = true;
-            btnSettings.Click += btnSettings_Click;
-            // 
-            // MainMenu
+            // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnSettings);
-            Controls.Add(btnStartGame);
-            Name = "MainMenu";
-            Text = "Snake";
-            Load += MainMenu_Load;
+            Controls.Add(lblResolution);
+            Name = "Settings";
+            Text = "Settings";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private Button btnStartGame;
-        private Button btnSettings;
+        private Label lblResolution;
     }
 }

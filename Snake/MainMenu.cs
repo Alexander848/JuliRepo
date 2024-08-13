@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace SnakeGame
 {
     public partial class MainMenu : Form
     {
         Game game;
+        Settings settings;
 
         public MainMenu()
         {
             InitializeComponent();
             game = new Game();
+            settings = new Settings();
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
@@ -36,6 +29,14 @@ namespace SnakeGame
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            settings = new Settings();
+            settings.FormClosing += delegate { Application.Exit(); };
+            settings.Show();
+            this.Hide();
         }
     }
 }

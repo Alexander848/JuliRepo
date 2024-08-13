@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnakeGame.GameElements.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,9 +10,8 @@ namespace SnakeGame.GameElements
     internal class EmptyArea : GameElement
     {
 
-        public EmptyArea(int xPosition, int yPosition) : base(xPosition, yPosition) {
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+        public EmptyArea(Position position) : base(position) {
+            this.position = position;
         }
     }
 }

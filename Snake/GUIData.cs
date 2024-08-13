@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SnakeGame.GameElements.Utilities;
 
 namespace SnakeGame
 {
     internal class GUIData
     {
         // Game Graphic Element Sizes
-        private readonly int standartRectangleHeight = 10;
-        private readonly int standartRectangleWidth = 10;
-
         private readonly int gameFrameWidth = 800;
-        private readonly int gameFrameHeight = 450;
+        private readonly int gameFrameHeight = 460;
+        
+        private readonly int standartRectangleHeight = 20;
+        private readonly int standartRectangleWidth = 20;
+
+        private readonly Position snakeStartPositionHead = new Position(100, 100);
+        private readonly Position snakeStartPositionTail = new Position(80, 100);
 
 
         public int GetStandartRectangleHeight()
@@ -31,6 +30,14 @@ namespace SnakeGame
         public int GetGameFrameWidth()
         {
             return gameFrameWidth;
+        }
+        public Position GetSnakeStartPositionHead()
+        {
+            return snakeStartPositionHead;
+        }
+        public Position GetSnakeStartPositionTail()
+        {
+            return snakeStartPositionTail;
         }
     }
 }

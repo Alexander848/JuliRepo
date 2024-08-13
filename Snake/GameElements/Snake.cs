@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SnakeGame.GameElements.Utilities;
 
 enum Direction
 {
@@ -16,6 +12,8 @@ namespace SnakeGame.GameElements
         private LinkedList<SnakeBodyPart> body;
         private Direction moveDirection;
         private Direction lastStepDirection;
+        private GUIData guiData = new GUIData();
+        public int foodInStomach { get; set; }
 
         public Snake()
         {
@@ -23,14 +21,35 @@ namespace SnakeGame.GameElements
 
             body = new LinkedList<SnakeBodyPart>();
             InitSnake();
+
+            foodInStomach = 0;
         }
 
         // Setzt Snake Body Parts an initiale Position
         private void InitSnake()
         {
-            body.AddFirst(new SnakeBodyPart(50, 50));
-            body.AddFirst(new SnakeBodyPart(60, 50));
+            body.AddFirst(new SnakeBodyPart(new Position(guiData.GetSnakeStartPositionTail().x, guiData.GetSnakeStartPositionTail().y)));
+            body.AddFirst(new SnakeBodyPart(new Position(guiData.GetSnakeStartPositionHead().x, guiData.GetSnakeStartPositionHead().y)));
         }
+
+        //Gives back position of snakeHead after one step
+        public Position GetNextSnakeHeadPosition()
+        {
+            SnakeBodyPart firstElement = this.body.First();
+
+            switch (this.GetMoveDirection())
+            {
+                case Direction.top:
+                    return new Position(firstElement.position.x, firstElement.position.y - guiData.GetStandartRectangleHeight());
+                case Direction.bottom:
+                    return new Position(firstElement.position.x, firstElement.position.y + guiData.GetStandartRectangleHeight());
+                case Direction.left:
+                    return new Position(firstElement.position.x - guiData.GetStandartRectangleWidth(), firstElement.position.y);
+                default:
+                    return new Position(firstElement.position.x + guiData.GetStandartRectangleWidth(), firstElement.position.y);
+            }
+        }
+
 
         //Getter und Setter
         public LinkedList<SnakeBodyPart> GetBody()

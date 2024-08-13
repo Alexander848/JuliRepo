@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.VisualBasic;
+﻿using SnakeGame.GameElements.Utilities;
 using SnakeGame.GameElements;
 
 namespace SnakeGame
@@ -14,8 +12,6 @@ namespace SnakeGame
         private GUIData guiData = new GUIData();
         private Snake snake;
         private Board board;
-
-        int testIterator = 0;
 
         private System.Windows.Forms.Timer timer;
 
@@ -33,6 +29,7 @@ namespace SnakeGame
             board = new Board();
             snake = new Snake();
             PlaceSnakeOnBoard();
+            PlaceFood();
 
             timer = new System.Windows.Forms.Timer();
         }
@@ -60,30 +57,22 @@ namespace SnakeGame
             {
                 foreach (SnakeBodyPart part in snake.GetBody())
                 {
-                    board.boardElements[part.xPosition / guiData.GetStandartRectangleWidth()][part.yPosition / guiData.GetStandartRectangleHeight()] = part;
+                    board.boardElements[part.position.x / guiData.GetStandartRectangleWidth()][part.position.y / guiData.GetStandartRectangleHeight()] = part;
                 }
             }
         }
 
         public void UpdateSnakeMovement()
         {
-            testIterator++;
-
-            if(testIterator == 5)
-            {
-                PlaceFood();
-                testIterator = 0;
-            }
+            CheckForCollision();
 
             PaintBoard();
 
             MoveSnakeBodyOneStep();
 
-            CheckForCollision();
-
             foreach (SnakeBodyPart snakePart in snake.GetBody())
             {
-                g.FillRectangle(snakeBrush, snakePart.xPosition, snakePart.yPosition, guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                g.FillRectangle(snakeBrush, snakePart.position.x, snakePart.position.y, guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
             }
         }
 
@@ -120,50 +109,62 @@ namespace SnakeGame
             // Iterate SnakeBodyParts, move them all one forward and add to board
             foreach (SnakeBodyPart snakePart in snake.GetBody())
             {
-                int xPositionPlaceholder = snakePart.xPosition;
-                int yPositionPlaceholder = snakePart.yPosition;
+                int xPositionPlaceholder = snakePart.position.x;
+                int yPositionPlaceholder = snakePart.position.y;
 
                 //Elements in the middle
                 if (snakePart != snake.GetBody().First())
                 {
-                    snakePart.xPosition = previousBodyPartX;
-                    snakePart.yPosition = previousBodyPartY;
+                    snakePart.position.x = previousBodyPartX;
+                    snakePart.position.y = previousBodyPartY;
                 }
                 //First element
                 else
                 {
-                    switch (snake.GetMoveDirection())
-                    {
-                        case Direction.top:
-                            snakePart.yPosition = snakePart.yPosition - guiData.GetStandartRectangleHeight();
-                            break;
-                        case Direction.bottom:
-                            snakePart.yPosition = snakePart.yPosition + guiData.GetStandartRectangleHeight();
-                            break;
-                        case Direction.left:
-                            snakePart.xPosition = snakePart.xPosition - guiData.GetStandartRectangleWidth();
-                            break;
-                        default:
-                            snakePart.xPosition = snakePart.xPosition + guiData.GetStandartRectangleWidth();
-                            break;
-                    }
+                    Position nextPosition = snake.GetNextSnakeHeadPosition();
+
+                    snakePart.position = nextPosition;
 
                     snake.SetLastStepDirection(snake.GetMoveDirection());
-                    board.boardElements[snakePart.xPosition / guiData.GetStandartRectangleWidth()][snakePart.yPosition / guiData.GetStandartRectangleHeight()] = snakePart;
-                }
-
-                // remove last element from board
-                board.boardElements[previousBodyPartX / guiData.GetStandartRectangleWidth()][previousBodyPartY / guiData.GetStandartRectangleHeight()]
-                    = new EmptyArea(previousBodyPartX, previousBodyPartY);
+                    board.boardElements[snakePart.position.x / guiData.GetStandartRectangleWidth()][snakePart.position.y / guiData.GetStandartRectangleHeight()] = snakePart;
+                }            
 
                 previousBodyPartX = xPositionPlaceholder;
                 previousBodyPartY = yPositionPlaceholder;
             }
+
+            // remove last element from board if there is no food in stomach
+            if (snake.foodInStomach == 0)
+            {
+                board.boardElements[previousBodyPartX / guiData.GetStandartRectangleWidth()][previousBodyPartY / guiData.GetStandartRectangleHeight()]
+                                    = new EmptyArea(new Position(previousBodyPartX, previousBodyPartY));
+            }
+            else
+            {
+                // Snake becomes longer
+                snake.foodInStomach--;
+                snake.GetBody().AddLast(new SnakeBodyPart(new Position(previousBodyPartX, previousBodyPartY)));
+            }
         }
 
+        // Checks if snake will collide with any element(food, rock, snake) on its next step
         private void CheckForCollision()
         {
-            //TODO
+            Position nextPosition = snake.GetNextSnakeHeadPosition();
+
+            GameElement collisionElement = board.boardElements[nextPosition.x / guiData.GetStandartRectangleWidth()][nextPosition.y / guiData.GetStandartRectangleHeight()];
+
+            if (collisionElement != null)
+            {
+                if(collisionElement.GetType() == typeof(Rock) || collisionElement.GetType() == typeof(SnakeBodyPart))
+                {
+                    timer.Stop();
+                } else if (collisionElement.GetType() == typeof(Food))
+                {
+                    PlaceFood();
+                    snake.foodInStomach++;
+                } 
+            }
         }
 
         private void PlaceFood()
@@ -180,7 +181,7 @@ namespace SnakeGame
 
                 if (elements[xCoordinate][yCoordinate].GetType() == typeof(EmptyArea))
                 {
-                    elements[xCoordinate][yCoordinate] = new Food(xCoordinate * guiData.GetStandartRectangleWidth(), yCoordinate * guiData.GetStandartRectangleHeight());
+                    elements[xCoordinate][yCoordinate] = new Food(new Position(xCoordinate * guiData.GetStandartRectangleWidth(), yCoordinate * guiData.GetStandartRectangleHeight()));
                     foodPlaced = true;
                 }
             }

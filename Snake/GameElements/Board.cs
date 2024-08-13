@@ -1,4 +1,5 @@
-﻿
+﻿using SnakeGame.GameElements.Utilities;
+
 namespace SnakeGame.GameElements
 {
     internal class Board
@@ -15,7 +16,7 @@ namespace SnakeGame.GameElements
 
                 for (int j = 0; j < boardElements[i].Length; j++)
                 {
-                    boardElements[i][j] = new EmptyArea(i*guiData.GetStandartRectangleWidth(), j*guiData.GetStandartRectangleHeight());
+                    boardElements[i][j] = new EmptyArea(new Position(i*guiData.GetStandartRectangleWidth(), j*guiData.GetStandartRectangleHeight()));
                 }
             }
         }
@@ -32,7 +33,7 @@ namespace SnakeGame.GameElements
             {
                 if (boardElements[i][0].GetType() == typeof(EmptyArea))
                 {
-                    boardElements[i][0] = new Rock(i * guiData.GetStandartRectangleWidth(), 0);
+                    boardElements[i][0] = new Rock(new Position(i * guiData.GetStandartRectangleWidth(), 0));
                 }
             }
 
@@ -41,8 +42,8 @@ namespace SnakeGame.GameElements
             {
                 if(boardElements[i][boardElements[i].Length-1].GetType() == typeof(EmptyArea))
                 {
-                    boardElements[i][boardElements[i].Length - 1] = new Rock(i * guiData.GetStandartRectangleWidth(),
-                        (boardElements[i].Length - 1) * guiData.GetStandartRectangleHeight());
+                    boardElements[i][boardElements[i].Length - 1] = new Rock(new Position(i * guiData.GetStandartRectangleWidth(),
+                        (boardElements[i].Length - 1) * guiData.GetStandartRectangleHeight()));
                 }
             }
 
@@ -51,7 +52,7 @@ namespace SnakeGame.GameElements
             {
                 if (boardElements[0][i].GetType() == typeof(EmptyArea))
                 {
-                    boardElements[0][i] = new Rock(0, i* guiData.GetStandartRectangleHeight());
+                    boardElements[0][i] = new Rock(new Position(0, i* guiData.GetStandartRectangleHeight()));
                 }
             }
             //fill right side with rocks
@@ -59,8 +60,8 @@ namespace SnakeGame.GameElements
             {
                 if (boardElements[boardElements.Length-1][i].GetType() == typeof(EmptyArea))
                 {
-                    boardElements[boardElements.Length - 1][i] = new Rock((boardElements.Length - 1) * guiData.GetStandartRectangleWidth(),
-                        i * guiData.GetStandartRectangleHeight());
+                    boardElements[boardElements.Length - 1][i] = new Rock(new Position((boardElements.Length - 1) * guiData.GetStandartRectangleWidth(),
+                        i * guiData.GetStandartRectangleHeight()));
                 }
             }
         }

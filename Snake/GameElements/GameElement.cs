@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SnakeGame.GameElements.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,11 @@ namespace SnakeGame.GameElements
 {
     internal class GameElement
     {
-        public int xPosition{ get; set; }
-        public int yPosition { get; set; }
+        public Position position { get; set; }
 
-        public GameElement(int xPosition, int yPosition)
+        public GameElement(Position position)
         {
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+            this.position = position;
         }
     }
 }

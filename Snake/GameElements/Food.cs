@@ -1,12 +1,13 @@
 ﻿
+using SnakeGame.GameElements.Utilities;
+
 namespace SnakeGame.GameElements
 {
     internal class Food : GameElement
     {
-        public Food(int xPosition, int yPosition) : base(xPosition, yPosition)
+        public Food(Position position) : base(position)
         {
-            this.xPosition = xPosition;
-            this.yPosition = yPosition;
+            this.position = position;
         }
     }
 }
