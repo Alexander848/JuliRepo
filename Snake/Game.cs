@@ -1,6 +1,13 @@
 ﻿using SnakeGame.GameElements.Utilities;
 using SnakeGame.GameElements;
 
+public enum Difficulty
+{
+    Easy,
+    Medium,
+    Hard
+}
+
 namespace SnakeGame
 {
     public partial class Game : Form { 
@@ -12,10 +19,13 @@ namespace SnakeGame
         private GUIData guiData = new GUIData();
         private Snake snake;
         private Board board;
+        private Difficulty difficulty = Difficulty.Easy;
+        private PauseForm pauseForm;
+        private MainMenu mainMenu;
 
-        private System.Windows.Forms.Timer timer;
+        public System.Windows.Forms.Timer timer { get; }
 
-        public Game()
+        public Game(MainMenu mainMenu, Difficulty difficulty)
         {
             InitializeComponent();
 
@@ -28,20 +38,36 @@ namespace SnakeGame
 
             board = new Board();
             snake = new Snake();
-            PlaceSnakeOnBoard();
-            PlaceFood();
 
             timer = new System.Windows.Forms.Timer();
+            this.difficulty = difficulty;
+
+            this.mainMenu = mainMenu;
+            pauseForm = new PauseForm(mainMenu, this);
         }
 
         // Setup Game refresh interval and paint initial board(without snake)
         private void Game_Load(object sender, EventArgs e)
         {
             timer.Tick += new EventHandler(TimerEventProcessor);
-            timer.Interval = 100;
+
+            if (difficulty == Difficulty.Hard)
+            {
+                timer.Interval = 60;
+            }
+            else if(difficulty == Difficulty.Medium)
+            {
+                timer.Interval = 90;
+            } else
+            {
+                timer.Interval = 120;
+            }
+            
             timer.Start();
 
-            board.FillBoard();
+            board.PlaceRocks();
+            PlaceSnakeOnBoard();
+            PlaceFood();
         }
 
         // Event that occurs every time the timer sets off an event
@@ -206,6 +232,14 @@ namespace SnakeGame
             else if ((e.KeyCode == Keys.D || e.KeyCode == Keys.Right) && snake.GetLastStepDirection() != Direction.left)
             {
                 snake.SetMoveDirection(Direction.right);
+            }
+            //Game Pause
+            else if(e.KeyCode == Keys.Escape || e.KeyCode == Keys.Pause)
+            {
+                timer.Stop();
+                pauseForm = new PauseForm(mainMenu, this);
+                pauseForm.FormClosed += delegate { timer.Start(); };
+                pauseForm.Show();
             }
         }
     }

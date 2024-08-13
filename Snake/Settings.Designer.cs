@@ -37,9 +37,9 @@
             lblResolution.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblResolution.Location = new Point(313, 105);
             lblResolution.Name = "lblResolution";
-            lblResolution.Size = new Size(136, 32);
+            lblResolution.Size = new Size(161, 32);
             lblResolution.TabIndex = 1;
-            lblResolution.Text = "Resolution";
+            lblResolution.Text = "Window Size";
             // 
             // Settings
             // 

@@ -21,7 +21,7 @@ namespace SnakeGame.GameElements
             }
         }
 
-        public void FillBoard()
+        public void PlaceRocks()
         {
             if (boardElements == null || boardElements.Length == 0)
             {

@@ -3,27 +3,24 @@ namespace SnakeGame
 {
     public partial class MainMenu : Form
     {
-        Game game;
         Settings settings;
+        DifficultyForm difficultyForm;
 
         public MainMenu()
         {
             InitializeComponent();
-            game = new Game();
             settings = new Settings();
+            difficultyForm = new DifficultyForm(this);
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
         {
-            game = new Game();
-            game.FormClosing += delegate { Application.Exit(); };
-            game.Show();
-            this.Hide();
+            difficultyForm = new DifficultyForm(this);
+            difficultyForm.Show();
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -33,10 +30,11 @@ namespace SnakeGame
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            settings = new Settings();
-            settings.FormClosing += delegate { Application.Exit(); };
-            settings.Show();
             this.Hide();
+            settings.FormClosed += delegate { Application.Exit(); };
+            settings.ShowDialog();
+            this.Show();
+            
         }
     }
 }
