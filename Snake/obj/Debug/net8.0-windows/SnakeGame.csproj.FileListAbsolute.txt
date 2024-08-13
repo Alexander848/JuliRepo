@@ -19,3 +19,4 @@ C:\Users\alexa\Desktop\Programmieren\Arbeitsbereich\JuliRepo\Snake\obj\Debug\net
 C:\Users\alexa\Desktop\Programmieren\Arbeitsbereich\JuliRepo\Snake\obj\Debug\net8.0-windows\SnakeGame.Settings.resources
 C:\Users\alexa\Desktop\Programmieren\Arbeitsbereich\JuliRepo\Snake\obj\Debug\net8.0-windows\SnakeGame.DifficultyForm.resources
 C:\Users\alexa\Desktop\Programmieren\Arbeitsbereich\JuliRepo\Snake\obj\Debug\net8.0-windows\SnakeGame.PauseForm.resources
+C:\Users\alexa\Desktop\Programmieren\Arbeitsbereich\JuliRepo\Snake\obj\Debug\net8.0-windows\SnakeGame.GameOverForm.resources

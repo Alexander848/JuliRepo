@@ -12,7 +12,7 @@ namespace SnakeGame
 {
     public partial class DifficultyForm : Form
     {
-        GUIData guiData;
+        GUIData guiData = new GUIData();
         Game game;
         MainMenu mainMenu;
 
@@ -20,7 +20,6 @@ namespace SnakeGame
         {
             InitializeComponent();
 
-            guiData = new GUIData();
             this.mainMenu = mainMenu;
             game = new Game(mainMenu, Difficulty.Easy);
         }

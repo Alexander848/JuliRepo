@@ -7,8 +7,13 @@ namespace SnakeGame
         // Game Graphic Element Sizes
         private readonly int gameFrameWidth = 800;
         private readonly int gameFrameHeight = 460;
+        private readonly int gameFrameInterfaceHeight = 100;
+
         private readonly int difficultyFrameWidth = 260;
         private readonly int difficultyFrameHeight = 240;
+
+        private readonly int pauseFormFrameWidth = 480;
+        private readonly int pauseFormFrameHeight = 280;
         
         private readonly int standartRectangleHeight = 20;
         private readonly int standartRectangleWidth = 20;
@@ -24,6 +29,10 @@ namespace SnakeGame
         {
             return gameFrameWidth;
         }
+        public int GetGameFrameInterfaceHeight()
+        {
+            return gameFrameInterfaceHeight;
+        }
         public int GetDifficultyFrameHeight()
         {
             return difficultyFrameHeight;
@@ -31,6 +40,14 @@ namespace SnakeGame
         public int GetDifficultyFrameWidth()
         {
             return difficultyFrameWidth;
+        }
+        public int GetPauseFormFrameHeight()
+        {
+            return pauseFormFrameHeight;
+        }
+        public int GetPauseFormFrameWidth()
+        {
+            return pauseFormFrameWidth;
         }
         public int GetStandartRectangleHeight()
         {

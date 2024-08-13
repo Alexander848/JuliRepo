@@ -10,18 +10,23 @@ public enum Difficulty
 
 namespace SnakeGame
 {
-    public partial class Game : Form { 
+    public partial class Game : Form {
+
+        private GUIData guiData = new GUIData();
+        private PauseForm pauseForm;
+        private GameOverForm gameOverForm;
+        private MainMenu mainMenu;
 
         private Graphics g;
         private SolidBrush snakeBrush;
         private SolidBrush rockBrush;
         private SolidBrush foodBrush;
-        private GUIData guiData = new GUIData();
+        
         private Snake snake;
         private Board board;
         private Difficulty difficulty = Difficulty.Easy;
-        private PauseForm pauseForm;
-        private MainMenu mainMenu;
+
+        private int score;
 
         public System.Windows.Forms.Timer timer { get; }
 
@@ -29,7 +34,7 @@ namespace SnakeGame
         {
             InitializeComponent();
 
-            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
+            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight() + guiData.GetGameFrameInterfaceHeight());
 
             g = this.CreateGraphics();
             snakeBrush = new SolidBrush(Color.Blue);
@@ -41,6 +46,7 @@ namespace SnakeGame
 
             timer = new System.Windows.Forms.Timer();
             this.difficulty = difficulty;
+            score = 0;
 
             this.mainMenu = mainMenu;
             pauseForm = new PauseForm(mainMenu, this);
@@ -184,13 +190,30 @@ namespace SnakeGame
 
             if (collisionElement != null)
             {
-                if(collisionElement.GetType() == typeof(Rock) || collisionElement.GetType() == typeof(SnakeBodyPart))
+                if(collisionElement.GetType() == typeof(Rock))
                 {
                     timer.Stop();
-                } else if (collisionElement.GetType() == typeof(Food))
+                    gameOverForm = new GameOverForm(mainMenu, this);
+                    gameOverForm.FormClosed += delegate { Application.Exit(); };
+                    gameOverForm.Show();
+                } else if(collisionElement.GetType() == typeof(SnakeBodyPart))
+                {
+                    //If it is the last snake element, it will be moved away from the area at the same time the snake head reaches it
+                    SnakeBodyPart? snakeBodyPart = snake.GetBody().Last?.Value;
+                    if(snakeBodyPart != null && collisionElement.position != snakeBodyPart.position)
+                    {
+                        timer.Stop();
+                        gameOverForm = new GameOverForm(mainMenu, this);
+                        gameOverForm.FormClosed += delegate { Application.Exit(); };
+                        gameOverForm.Show();
+                    }
+                }
+                else if (collisionElement.GetType() == typeof(Food))
                 {
                     PlaceFood();
                     snake.foodInStomach++;
+                    score++;
+                    lblScoreValue.Text = score.ToString();
                 } 
             }
         }
@@ -200,6 +223,8 @@ namespace SnakeGame
             GameElement[][] elements = board.boardElements;
             bool foodPlaced = false;
             Random rnd = new Random();
+
+            Position nextSnakeHeadPosition = snake.GetNextSnakeHeadPosition();
             
             //Tries to randomly find an empty space on board to place fruit
             while (!foodPlaced)
@@ -207,7 +232,7 @@ namespace SnakeGame
                 int xCoordinate = rnd.Next(0, elements.Length);
                 int yCoordinate = rnd.Next(0, elements[0].Length);
 
-                if (elements[xCoordinate][yCoordinate].GetType() == typeof(EmptyArea))
+                if (elements[xCoordinate][yCoordinate].GetType() == typeof(EmptyArea) && new Position(xCoordinate, yCoordinate) != nextSnakeHeadPosition) 
                 {
                     elements[xCoordinate][yCoordinate] = new Food(new Position(xCoordinate * guiData.GetStandartRectangleWidth(), yCoordinate * guiData.GetStandartRectangleHeight()));
                     foodPlaced = true;

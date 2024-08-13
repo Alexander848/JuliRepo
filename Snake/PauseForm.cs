@@ -5,13 +5,14 @@ namespace SnakeGame
     {
         MainMenu mainMenu;
         Game game;
+        GUIData guiData = new GUIData();
 
         public PauseForm(MainMenu mainMenu, Game game)
         {
             InitializeComponent();
 
             this.mainMenu = mainMenu;
-            this.game = game;
+            this.game = game;            
         }
 
         private void PauseForm_Load(object sender, EventArgs e)
