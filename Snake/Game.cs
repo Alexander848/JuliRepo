@@ -265,7 +265,6 @@ namespace SnakeGame
             {
                 timer.Stop();
                 pauseForm = new PauseForm(mainMenu, this);
-                pauseForm.FormClosed += delegate { timer.Start(); };
                 pauseForm.Show();
             }
         }
