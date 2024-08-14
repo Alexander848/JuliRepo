@@ -19,7 +19,7 @@
       "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\pauseform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\gameoverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\snake\\gameoverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\gameoverform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -48,7 +48,7 @@
               "RelativeDocumentMoniker": "Snake\\Game.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\Game.cs",
               "RelativeToolTip": "Snake\\Game.cs",
-              "ViewState": "AQIAALUAAAAAAAAAAAAYwMQAAABQAAAA",
+              "ViewState": "AQIAAPgAAAAAAAAAAADwvwwBAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-11T15:10:08.619Z",
               "IsPinned": true,
@@ -64,8 +64,7 @@
               "RelativeToolTip": "Snake\\PauseForm.Designer.cs",
               "ViewState": "AQIAACEAAAAAAAAAAAAowAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T20:34:59.924Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T20:34:59.924Z"
             },
             {
               "$type": "Document",
@@ -76,8 +75,7 @@
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\GameOverForm.cs [Design]",
               "RelativeToolTip": "Snake\\GameOverForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T20:14:27.831Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-08-13T20:14:27.831Z"
             },
             {
               "$type": "Document",
@@ -89,8 +87,7 @@
               "RelativeToolTip": "Snake\\GameOverForm.Designer.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAxwCYAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T20:19:48.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T20:19:48.864Z"
             },
             {
               "$type": "Document",
@@ -102,8 +99,7 @@
               "RelativeToolTip": "Snake\\GameOverForm.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T20:19:41.252Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T20:19:41.252Z"
             },
             {
               "$type": "Document",
@@ -115,8 +111,7 @@
               "RelativeToolTip": "Snake\\GUIData.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAqwDEAAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T18:59:09.841Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T18:59:09.841Z"
             },
             {
               "$type": "Document",
@@ -126,7 +121,7 @@
               "RelativeDocumentMoniker": "Snake\\MainMenu.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\MainMenu.cs",
               "RelativeToolTip": "Snake\\MainMenu.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBIAAAAgAAAA",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwBsAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T14:50:37.184Z",
               "EditorCaption": ""
