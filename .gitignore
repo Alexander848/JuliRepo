@@ -1,3 +1,6 @@
 Snake/bin
+Snake/bin/*
 Snake/obj
+Snake/obj/*
 .vs
+.vs/*
