@@ -1,6 +1,6 @@
 Snake/bin
-Snake/bin/*
+Snake/bin/Debug/net8.0-windows
 Snake/obj
-Snake/obj/*
+Snake/obj/Debug/net8.0-windows
 .vs
-.vs/*
+.vs/Snake/v17
