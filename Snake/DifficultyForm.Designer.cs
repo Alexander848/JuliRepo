@@ -32,6 +32,7 @@
             btnDiffEasy = new Button();
             btnDiffMedium = new Button();
             btnDiffHard = new Button();
+            btnBack = new Button();
             SuspendLayout();
             // 
             // lblSelectDiff
@@ -78,11 +79,23 @@
             btnDiffHard.UseVisualStyleBackColor = true;
             btnDiffHard.Click += btnDiffHard_Click;
             // 
+            // btnBack
+            // 
+            btnBack.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBack.Location = new Point(74, 232);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(135, 39);
+            btnBack.TabIndex = 4;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // DifficultyForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 261);
+            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
+            Controls.Add(btnBack);
             Controls.Add(btnDiffHard);
             Controls.Add(btnDiffMedium);
             Controls.Add(btnDiffEasy);
@@ -100,5 +113,6 @@
         private Button btnDiffEasy;
         private Button btnDiffMedium;
         private Button btnDiffHard;
+        private Button btnBack;
     }
 }

@@ -23,18 +23,18 @@ namespace SnakeGame
             this.CenterToScreen();
         }
 
-            private void btnMainMenu_Click(object sender, EventArgs e)
+        private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             mainMenu.Show();
-            game.Hide();
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
+            this.Hide();
             difficultyForm = new DifficultyForm(mainMenu);
-            difficultyForm.FormClosed += delegate { this.Close(); };
-            difficultyForm.ShowDialog();
+            difficultyForm.FormClosed += delegate { Application.Exit(); };
+            difficultyForm.Show();
         }
     }
 }

@@ -4,16 +4,18 @@ namespace SnakeGame
     public partial class MainMenu : Form
     {
         DifficultyForm difficultyForm;
+        private GUIData guiData = new GUIData();
 
         public MainMenu()
         {
             InitializeComponent();
-            difficultyForm = new DifficultyForm(this);
         }
 
         private void btnStartGame_Click(object sender, EventArgs e)
         {
+            this.Hide();
             difficultyForm = new DifficultyForm(this);
+            difficultyForm.FormClosing += delegate { Application.Exit(); };
             difficultyForm.Show();
         }
 

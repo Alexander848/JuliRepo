@@ -127,20 +127,14 @@ namespace SnakeGame
             if (collisionElement != null)
             {
                 if (collisionElement.GetType() == typeof(Rock)) {
-                    timer.Stop();
-                    gameOverForm = new GameOverForm(mainMenu, this);
-                    gameOverForm.FormClosed += delegate { this.Close(); };
-                    gameOverForm.Show();
+                    EndGame();
                 } else if (collisionElement.GetType() == typeof(Snake))
                 {
                     //If it is the last snake element, it will be moved away from the area at the same time the snake head reaches it
                     SnakeBodyPart? snakeBodyPart = snake.GetBody().Last?.Value;
                     if (snakeBodyPart != null && collisionElement.position != snakeBodyPart.position)
                     {
-                        timer.Stop();
-                        gameOverForm = new GameOverForm(mainMenu, this);
-                        gameOverForm.FormClosed += delegate { Application.Exit(); };
-                        gameOverForm.Show();
+                        EndGame();
                     }
                 } else if (collisionElement.GetType() == typeof(Food))
                 {
@@ -272,6 +266,15 @@ namespace SnakeGame
                 pauseForm = new PauseForm(mainMenu, this);
                 pauseForm.Show();
             }
+        }
+
+        private void EndGame()
+        {
+            timer.Stop();
+            this.Hide();
+            gameOverForm = new GameOverForm(mainMenu, this);
+            gameOverForm.FormClosed += delegate { Application.Exit(); };
+            gameOverForm.Show();
         }
     }
 }
