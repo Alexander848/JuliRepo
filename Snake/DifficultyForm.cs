@@ -13,7 +13,7 @@ namespace SnakeGame
     public partial class DifficultyForm : Form
     {
         GUIData guiData = new GUIData();
-        Game game;
+        Game? game;
         MainMenu mainMenu;
 
         public DifficultyForm(MainMenu mainMenu)
@@ -21,7 +21,6 @@ namespace SnakeGame
             InitializeComponent();
 
             this.mainMenu = mainMenu;
-            game = new Game(mainMenu, Difficulty.Easy);
         }
 
         private void DifficultyForm_Load(object sender, EventArgs e)
@@ -36,7 +35,6 @@ namespace SnakeGame
             game = new Game(mainMenu, Difficulty.Easy);
             game.FormClosing += delegate { Application.Exit(); };
             game.Show();
-            
         }
 
         private void btnDiffMedium_Click(object sender, EventArgs e)

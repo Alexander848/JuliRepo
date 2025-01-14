@@ -20,9 +20,13 @@ namespace SnakeGame
             this.CenterToScreen();
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void PauseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             game.timer.Start();
+        }
+
+        private void btnContinue_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
 

@@ -75,10 +75,12 @@
             Controls.Add(btnPause);
             Controls.Add(lblScoreValue);
             Controls.Add(lblScoreName);
+            BackColor = Color.White;
             KeyPreview = true;
             Name = "Game";
             Text = "Snake";
             Load += Game_Load;
+            Shown += Game_Shown;
             KeyDown += Game_KeyDown;
             ResumeLayout(false);
             PerformLayout();

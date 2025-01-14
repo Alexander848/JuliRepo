@@ -18,6 +18,7 @@ namespace SnakeGame.GameElements
         public Snake()
         {
             moveDirection = Direction.right;
+            lastStepDirection = Direction.right;
 
             body = new LinkedList<SnakeBodyPart>();
             InitSnake();

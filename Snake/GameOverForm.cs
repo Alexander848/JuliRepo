@@ -25,17 +25,16 @@ namespace SnakeGame
 
             private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            game.Hide();
             this.Close();
             mainMenu.Show();
+            game.Hide();
         }
 
         private void btnNewGame_Click(object sender, EventArgs e)
         {
-            game.Hide();
-            this.Close();
             difficultyForm = new DifficultyForm(mainMenu);
-            difficultyForm.Show();
+            difficultyForm.FormClosed += delegate { this.Close(); };
+            difficultyForm.ShowDialog();
         }
     }
 }

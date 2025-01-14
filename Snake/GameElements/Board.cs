@@ -20,51 +20,5 @@ namespace SnakeGame.GameElements
                 }
             }
         }
-
-        public void PlaceRocks()
-        {
-            if (boardElements == null || boardElements.Length == 0)
-            {
-                return;
-            }
-
-            // Fill upper row with rocks
-            for (int i = 0; i < boardElements.Length; i++)
-            {
-                if (boardElements[i][0].GetType() == typeof(EmptyArea))
-                {
-                    boardElements[i][0] = new Rock(new Position(i * guiData.GetStandartRectangleWidth(), 0));
-                }
-            }
-
-            //fill lower rock with rocks
-            for (int i = 0; i < boardElements.Length; i++)
-            {
-                if(boardElements[i][boardElements[i].Length-1].GetType() == typeof(EmptyArea))
-                {
-                    boardElements[i][boardElements[i].Length - 1] = new Rock(new Position(i * guiData.GetStandartRectangleWidth(),
-                        (boardElements[i].Length - 1) * guiData.GetStandartRectangleHeight()));
-                }
-            }
-
-            //fill left side with rocks
-            for(int i = 0; i < boardElements[0].Length; i++)
-            {
-                if (boardElements[0][i].GetType() == typeof(EmptyArea))
-                {
-                    boardElements[0][i] = new Rock(new Position(0, i* guiData.GetStandartRectangleHeight()));
-                }
-            }
-            //fill right side with rocks
-            for(int i = 0; i < boardElements[0].Length; i++)
-            {
-                if (boardElements[boardElements.Length-1][i].GetType() == typeof(EmptyArea))
-                {
-                    boardElements[boardElements.Length - 1][i] = new Rock(new Position((boardElements.Length - 1) * guiData.GetStandartRectangleWidth(),
-                        i * guiData.GetStandartRectangleHeight()));
-                }
-            }
-        }
-
     }
 }
