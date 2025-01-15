@@ -18,8 +18,18 @@ namespace SnakeGame
         private readonly int standartRectangleHeight = 20;
         private readonly int standartRectangleWidth = 20;
 
-        private readonly Position snakeStartPositionHead = new Position(100, 100);
-        private readonly Position snakeStartPositionTail = new Position(80, 100);
+        private readonly Position snakeStartPositionHead = new Position(5, 5);
+        private readonly Position snakeStartPositionTail = new Position(4, 5);
+
+        // Brushes
+        private readonly SolidBrush _blueBrush = new SolidBrush(Color.Blue);
+        public SolidBrush BlueBrush { get { return _blueBrush; } }
+        private readonly SolidBrush _greyBrush = new SolidBrush(Color.Gray);
+        public SolidBrush GreyBrush { get { return _greyBrush; } }
+        private readonly SolidBrush _redBrush = new SolidBrush(Color.Red);
+        public SolidBrush RedBrush { get { return _redBrush; } }
+        private readonly SolidBrush _whiteBrush = new SolidBrush(Color.White);
+        public SolidBrush WhiteBrush { get { return _whiteBrush; } }
 
         public int GetGameFrameHeight()
         {

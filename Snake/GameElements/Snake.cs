@@ -9,73 +9,42 @@ namespace SnakeGame.GameElements
 {
     internal class Snake
     {
-        private LinkedList<SnakeBodyPart> body;
-        private Direction moveDirection;
-        private Direction lastStepDirection;
+        private Direction _moveDirection;
+        public Direction MoveDirection { get { return _moveDirection; } set { _moveDirection = value; } }
+        private Direction _lastStepDirection;
+        public Direction LastStepDirection { get { return _lastStepDirection; } set { _lastStepDirection = value; } }
         private GUIData guiData = new GUIData();
         public int foodInStomach { get; set; }
+        public Queue<Position> snakeBody;
 
         public Snake()
         {
-            moveDirection = Direction.right;
-            lastStepDirection = Direction.right;
+            MoveDirection = Direction.right;
+            LastStepDirection = Direction.right;
 
-            body = new LinkedList<SnakeBodyPart>();
-            InitSnake();
+            snakeBody = new Queue<Position>();
+            snakeBody.Enqueue(guiData.GetSnakeStartPositionTail());
+            snakeBody.Enqueue(guiData.GetSnakeStartPositionHead());
+
 
             foodInStomach = 0;
-        }
-
-        // Setzt Snake Body Parts an initiale Position
-        private void InitSnake()
-        {
-            body.AddFirst(new SnakeBodyPart(new Position(guiData.GetSnakeStartPositionTail().x, guiData.GetSnakeStartPositionTail().y)));
-            body.AddFirst(new SnakeBodyPart(new Position(guiData.GetSnakeStartPositionHead().x, guiData.GetSnakeStartPositionHead().y)));
         }
 
         //Gives back position of snakeHead after one step
         public Position GetNextSnakeHeadPosition()
         {
-            SnakeBodyPart firstElement = this.body.First();
 
-            switch (this.GetMoveDirection())
+            switch (this.MoveDirection)
             {
                 case Direction.top:
-                    return new Position(firstElement.position.x, firstElement.position.y - guiData.GetStandartRectangleHeight());
+                    return new Position(snakeBody.Last().x, snakeBody.Last().y - 1);
                 case Direction.bottom:
-                    return new Position(firstElement.position.x, firstElement.position.y + guiData.GetStandartRectangleHeight());
+                    return new Position(snakeBody.Last().x, snakeBody.Last().y + 1);
                 case Direction.left:
-                    return new Position(firstElement.position.x - guiData.GetStandartRectangleWidth(), firstElement.position.y);
+                    return new Position(snakeBody.Last().x - 1, snakeBody.Last().y);
                 default:
-                    return new Position(firstElement.position.x + guiData.GetStandartRectangleWidth(), firstElement.position.y);
+                    return new Position(snakeBody.Last().x + 1, snakeBody.Last().y);
             }
-        }
-
-
-        //Getter und Setter
-        public LinkedList<SnakeBodyPart> GetBody()
-        {
-            return body;
-        }
-        public void SetBodyPart(LinkedList<SnakeBodyPart> bodyPart)
-        {
-            body = bodyPart;
-        }
-        public Direction GetMoveDirection()
-        {
-            return moveDirection;
-        }
-        public void SetMoveDirection(Direction moveDirection)
-        {
-            this.moveDirection = moveDirection;
-        }
-        public Direction GetLastStepDirection()
-        {
-            return lastStepDirection;
-        }
-        public void SetLastStepDirection(Direction lastStepDirection)
-        {
-            this.lastStepDirection = lastStepDirection;
         }
     }
 }
