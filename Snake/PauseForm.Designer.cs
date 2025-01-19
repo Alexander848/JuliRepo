@@ -76,7 +76,6 @@
             Name = "PauseForm";
             Text = "Pause";
             Load += PauseForm_Load;
-            FormClosing += PauseForm_FormClosing;
             ResumeLayout(false);
             PerformLayout();
         }

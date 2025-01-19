@@ -4,11 +4,27 @@ namespace SnakeGame
 {
     internal class GUIData
     {
-        // Game Graphic Element Sizes
-        private readonly int gameFrameWidth = 800;
-        private readonly int gameFrameHeight = 460;
-        private readonly int gameFrameInterfaceHeight = 100;
+        // Window Size
+        private static Size _windowSize = new Size(1920, 1080);
+        public static Size WindowSize
+        {
+            get { return _windowSize; }
+            set { _windowSize = value; }
+        }
 
+        // Game Graphic Element Sizes
+        private Size _gameFrameSize = new Size(800, 460);
+        public Size GameFrameSize
+        {
+            get { return _gameFrameSize; }
+            set { _gameFrameSize = value; }
+        }
+        private int _gameFrameInterfaceHeight = 100;
+        public int GameFrameInterfaceHeight
+        {
+            get { return _gameFrameInterfaceHeight; }
+            set { _gameFrameInterfaceHeight = value; }
+        }
         private readonly int difficultyFrameWidth = 260;
         private readonly int difficultyFrameHeight = 240;
 
@@ -31,18 +47,6 @@ namespace SnakeGame
         private readonly SolidBrush _whiteBrush = new SolidBrush(Color.White);
         public SolidBrush WhiteBrush { get { return _whiteBrush; } }
 
-        public int GetGameFrameHeight()
-        {
-            return gameFrameHeight;
-        }
-        public int GetGameFrameWidth()
-        {
-            return gameFrameWidth;
-        }
-        public int GetGameFrameInterfaceHeight()
-        {
-            return gameFrameInterfaceHeight;
-        }
         public int GetDifficultyFrameHeight()
         {
             return difficultyFrameHeight;

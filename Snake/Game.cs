@@ -33,7 +33,7 @@ namespace SnakeGame
         {
             InitializeComponent();
 
-            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight() + guiData.GetGameFrameInterfaceHeight());
+            ClientSize = new Size(guiData.GameFrameSize.Width, guiData.GameFrameSize.Height + guiData.GameFrameInterfaceHeight);
 
             graphics = this.CreateGraphics();
 
@@ -58,11 +58,11 @@ namespace SnakeGame
 
             if (difficulty == Difficulty.Hard)
             {
-                timer.Interval = 60;
+                timer.Interval = 40;
             }
             else if(difficulty == Difficulty.Medium)
             {
-                timer.Interval = 90;
+                timer.Interval = 80;
             } else
             {
                 timer.Interval = 120;
@@ -81,12 +81,13 @@ namespace SnakeGame
         // Event that occurs every time the timer sets off an event
         private void TimerEventProcessor(Object? sender, EventArgs e)
         {
-            bool gameGood = board.MoveSnakeAndDetectCollision(ref snake);
+            bool gameGood = board.MoveSnakeAndDetectCollision(ref this.score, ref snake);
             if (!gameGood)
             {
                 EndGame();
             }
             board.DrawBoard(graphics);
+            lblScoreValue.Text = score.ToString();
         }        
 
         // Handles KeyPressed Events: Sets snake direction
@@ -131,6 +132,11 @@ namespace SnakeGame
             pauseForm = new PauseForm(mainMenu, this);
             pauseForm.ShowInTaskbar = false;
             pauseForm.Show(this);
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            PauseGame();
         }
     }
 }

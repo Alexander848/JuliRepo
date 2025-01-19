@@ -15,8 +15,9 @@ namespace SnakeGame
             this.mainMenu = mainMenu;
         }
 
-        private void DifficultyForm_Load(object sender, EventArgs e)
+        private void DifficultyForm_Activated(object sender, EventArgs e)
         {
+            this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
             this.CenterToScreen();
         }
 

@@ -94,7 +94,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
             Controls.Add(btnBack);
             Controls.Add(btnDiffHard);
             Controls.Add(btnDiffMedium);
@@ -102,7 +101,7 @@
             Controls.Add(lblSelectDiff);
             Name = "DifficultyForm";
             Text = "DifficultyForm";
-            Load += DifficultyForm_Load;
+            Activated += DifficultyForm_Activated;
             ResumeLayout(false);
             PerformLayout();
         }

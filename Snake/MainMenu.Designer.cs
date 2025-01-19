@@ -29,32 +29,44 @@
         private void InitializeComponent()
         {
             btnStartGame = new Button();
+            btnSettings = new Button();
             SuspendLayout();
             // 
             // btnStartGame
             // 
-            btnStartGame.Location = new Point(220, 126);
+            btnStartGame.Location = new Point(220, 80);
             btnStartGame.Name = "btnStartGame";
-            btnStartGame.Size = new Size(350, 187);
+            btnStartGame.Size = new Size(250, 150);
             btnStartGame.TabIndex = 0;
             btnStartGame.Text = "Start Game";
             btnStartGame.UseVisualStyleBackColor = true;
             btnStartGame.Click += btnStartGame_Click;
             // 
+            // btnSettings
+            // 
+            btnSettings.Location = new Point(220, 250);
+            btnSettings.Name = "btnSettings";
+            btnSettings.Size = new Size(250, 150);
+            btnSettings.TabIndex = 1;
+            btnSettings.Text = "Settings";
+            btnSettings.UseVisualStyleBackColor = true;
+            btnSettings.Click += btnSettings_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
+            Controls.Add(btnSettings);
             Controls.Add(btnStartGame);
             Name = "MainMenu";
             Text = "Snake";
-            Load += MainMenu_Load;
+            Activated += MainMenu_Activated;
             ResumeLayout(false);
         }
 
         #endregion
 
         private Button btnStartGame;
+        private Button btnSettings;
     }
 }

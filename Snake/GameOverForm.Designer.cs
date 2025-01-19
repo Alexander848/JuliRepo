@@ -69,7 +69,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(guiData.GetGameFrameWidth(), guiData.GetGameFrameHeight());
+            ClientSize = new Size(guiData.GameFrameSize.Width, guiData.GameFrameSize.Height);
             Controls.Add(btnMainMenu);
             Controls.Add(btnNewGame);
             Controls.Add(lblGameOver);

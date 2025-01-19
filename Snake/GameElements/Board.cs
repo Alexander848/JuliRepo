@@ -11,10 +11,10 @@ namespace SnakeGame.GameElements
 
         public Board()
         {
-            boardElements = new GameElement[guiData.GetGameFrameWidth() / guiData.GetStandartRectangleWidth()][];
+            boardElements = new GameElement[guiData.GameFrameSize.Width / guiData.GetStandartRectangleWidth()][];
             for (int i = 0; i < boardElements.Length; i++)
             {
-                boardElements[i] = new GameElement[guiData.GetGameFrameHeight() / guiData.GetStandartRectangleHeight()];
+                boardElements[i] = new GameElement[guiData.GameFrameSize.Height / guiData.GetStandartRectangleHeight()];
 
                 for (int j = 0; j < boardElements[i].Length; j++)
                 {
@@ -147,7 +147,7 @@ namespace SnakeGame.GameElements
         }
 
         // 
-        public bool MoveSnakeAndDetectCollision(ref Snake snake)
+        public bool MoveSnakeAndDetectCollision(ref int score, ref Snake snake)
         {
             snake.LastStepDirection = snake.MoveDirection;
 
@@ -182,6 +182,7 @@ namespace SnakeGame.GameElements
             } else if(elementCurrentlyAtNextPosition.GetType() == typeof(Food))
             {
                 snake.foodInStomach++;
+                score++;
                 AddFirstSnakeElement(ref snake, nextHeadPosition);
                 PlaceFood(snake);
                 return true;
