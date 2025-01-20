@@ -42,7 +42,6 @@
             cBoxScreenSize.Name = "cBoxScreenSize";
             cBoxScreenSize.Size = new Size(232, 23);
             cBoxScreenSize.TabIndex = 0;
-            cBoxScreenSize.SelectedIndexChanged += cBoxScreenSize_SelectedIndexChanged;
             // 
             // lblScreenSize
             // 
@@ -71,9 +70,10 @@
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(114, 80);
             btnSave.TabIndex = 3;
-            btnSave.Text = "Save TODO";
+            btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.UseWaitCursor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // SettingsForm
             // 

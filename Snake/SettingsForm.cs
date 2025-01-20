@@ -33,12 +33,15 @@ namespace SnakeGame
         {
             this.Hide();
             mainMenu.Show();
+
+            // If changes have not been saved, resets changes
+            this.cBoxScreenSize.Text = GUIData.WindowSize.Width + " x " + GUIData.WindowSize.Height;
         }
 
-        // Changes window resolution, if a new resolution is selected in the combo box
-        private void cBoxScreenSize_SelectedIndexChanged(object sender, EventArgs e)
+        // Executes changes done in the settings
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            string selectedResolutionString = (string) cBoxScreenSize.SelectedItem!;
+            string selectedResolutionString = (string)cBoxScreenSize.SelectedItem!;
             string[] splitResolutionString = selectedResolutionString.Split(' ');
 
             GUIData.WindowSize = new Size(Int32.Parse(splitResolutionString[0]), Int32.Parse(splitResolutionString[2]));
