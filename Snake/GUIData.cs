@@ -5,7 +5,14 @@ namespace SnakeGame
     internal class GUIData
     {
         // Window Size
-        private static Size _windowSize = new Size(1920, 1080);
+        private static bool _fullScreen = false;
+        public static bool FullScreen
+        { 
+            get { return _fullScreen; } 
+            set { _fullScreen = value; }
+        }
+
+        private static Size _windowSize = new Size(1600, 920);
         public static Size WindowSize
         {
             get { return _windowSize; }

@@ -25,26 +25,48 @@ namespace SnakeGame
 
         private void SettingsForm_Activate(object sender, EventArgs e)
         {
-            this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
-            this.CenterToScreen();
+            // Set Windowsize
+            if (GUIData.FullScreen)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            } else
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.WindowState = FormWindowState.Normal;
+                this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
+                this.CenterToScreen();
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            mainMenu.Show();
 
             // If changes have not been saved, resets changes
             this.cBoxScreenSize.Text = GUIData.WindowSize.Width + " x " + GUIData.WindowSize.Height;
+            // Reset fullscreen (whilst hidden)
+            this.WindowState = FormWindowState.Normal;
+
+            this.Hide();
+            mainMenu.Show();
+
+            
         }
 
         // Executes changes done in the settings
         private void btnSave_Click(object sender, EventArgs e)
         {
-            string selectedResolutionString = (string)cBoxScreenSize.SelectedItem!;
-            string[] splitResolutionString = selectedResolutionString.Split(' ');
+            if (radioFullscreen.Checked)
+            {
+                GUIData.FullScreen = true;
+            } else
+            {
+                GUIData.FullScreen = false;
+                string selectedResolutionString = (string)cBoxScreenSize.SelectedItem!;
+                string[] splitResolutionString = selectedResolutionString.Split(' ');
 
-            GUIData.WindowSize = new Size(Int32.Parse(splitResolutionString[0]), Int32.Parse(splitResolutionString[2]));
+                GUIData.WindowSize = new Size(Int32.Parse(splitResolutionString[0]), Int32.Parse(splitResolutionString[2]));
+            }
         }
     }
 }

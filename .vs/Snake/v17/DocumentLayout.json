@@ -3,28 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\difficultyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\difficultyform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\settingsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\difficultyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\difficultyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\settingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\guidata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\guidata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\mainmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -33,14 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|c:\\users\\alexa\\desktop\\programmieren\\arbeitsbereich\\julirepo\\snake\\guidata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\guidata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0316A90C-44EC-4834-899F-C100304DEF8A}|Snake\\SnakeGame.csproj|solutionrelative:snake\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -72,50 +64,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "DifficultyForm.cs",
-              "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\DifficultyForm.cs",
-              "RelativeDocumentMoniker": "Snake\\DifficultyForm.cs",
-              "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\DifficultyForm.cs",
-              "RelativeToolTip": "Snake\\DifficultyForm.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAtwAoAAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T20:46:28.587Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DifficultyForm.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\DifficultyForm.Designer.cs",
-              "RelativeDocumentMoniker": "Snake\\DifficultyForm.Designer.cs",
-              "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\DifficultyForm.Designer.cs",
-              "RelativeToolTip": "Snake\\DifficultyForm.Designer.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAowGcAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T20:14:22.963Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "MainMenu.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\MainMenu.cs",
               "RelativeDocumentMoniker": "Snake\\MainMenu.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\MainMenu.cs",
               "RelativeToolTip": "Snake\\MainMenu.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAtwBAAAAAJAAAA",
+              "ViewState": "AQIAABoAAAAAAAAAAAAnwCcAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-19T18:53:28.075Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "MainMenu.cs [Design]",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\MainMenu.cs",
               "RelativeDocumentMoniker": "Snake\\MainMenu.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\MainMenu.cs [Design]",
               "RelativeToolTip": "Snake\\MainMenu.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T22:17:10.092Z"
+              "WhenOpened": "2025-01-15T22:17:10.092Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -127,57 +96,59 @@
               "RelativeToolTip": "Snake\\MainMenu.Designer.cs",
               "ViewState": "AQIAACQAAAAAAAAAAAAowC0AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-15T21:58:32.683Z"
+              "WhenOpened": "2025-01-15T21:58:32.683Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "SettingsForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.cs",
               "RelativeDocumentMoniker": "Snake\\SettingsForm.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.cs [Design]",
               "RelativeToolTip": "Snake\\SettingsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T20:54:04.786Z",
+              "WhenOpened": "2025-01-21T00:35:08.833Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SettingsForm.Designer.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.Designer.cs",
               "RelativeDocumentMoniker": "Snake\\SettingsForm.Designer.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.Designer.cs",
               "RelativeToolTip": "Snake\\SettingsForm.Designer.cs",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAowCsAAAAoAAAA",
+              "ViewState": "AQIAABwAAAAAAAAAAIA2wDAAAABGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T22:20:27.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "SettingsForm.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.cs",
               "RelativeDocumentMoniker": "Snake\\SettingsForm.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\SettingsForm.cs",
               "RelativeToolTip": "Snake\\SettingsForm.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAkwC4AAAB4AAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAC8AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-15T22:20:19.093Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "GUIData.cs",
               "DocumentMoniker": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\GUIData.cs",
               "RelativeDocumentMoniker": "Snake\\GUIData.cs",
               "ToolTip": "C:\\Users\\alexa\\Desktop\\Programmieren\\Arbeitsbereich\\JuliRepo\\Snake\\GUIData.cs",
               "RelativeToolTip": "Snake\\GUIData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-19T18:52:01.167Z"
+              "WhenOpened": "2025-01-19T18:52:01.167Z",
+              "EditorCaption": ""
             }
           ]
         }
