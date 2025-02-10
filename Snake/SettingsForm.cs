@@ -34,7 +34,7 @@ namespace SnakeGame
             {
                 this.FormBorderStyle = FormBorderStyle.Sizable;
                 this.WindowState = FormWindowState.Normal;
-                this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
+                this.ClientSize = GUIData.WindowSize;
                 this.CenterToScreen();
             }
         }
