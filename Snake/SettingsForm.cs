@@ -44,13 +44,19 @@ namespace SnakeGame
 
             // If changes have not been saved, resets changes
             this.cBoxScreenSize.Text = GUIData.WindowSize.Width + " x " + GUIData.WindowSize.Height;
+            if (GUIData.FullScreen)
+            {
+                radioFullscreen.Checked = true;
+                radioWindowed.Checked = false;
+            } else {
+                radioFullscreen.Checked = false; 
+                radioWindowed.Checked = true;
+            }
             // Reset fullscreen (whilst hidden)
             this.WindowState = FormWindowState.Normal;
 
-            this.Hide();
             mainMenu.Show();
-
-            
+            this.Hide();
         }
 
         // Executes changes done in the settings
@@ -66,6 +72,20 @@ namespace SnakeGame
                 string[] splitResolutionString = selectedResolutionString.Split(' ');
 
                 GUIData.WindowSize = new Size(Int32.Parse(splitResolutionString[0]), Int32.Parse(splitResolutionString[2]));
+            }
+
+            // Set Windowsize
+            if (GUIData.FullScreen)
+            {
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.FormBorderStyle = FormBorderStyle.Sizable;
+                this.WindowState = FormWindowState.Normal;
+                this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
+                this.CenterToScreen();
             }
         }
     }

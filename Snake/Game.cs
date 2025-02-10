@@ -33,7 +33,7 @@ namespace SnakeGame
         {
             InitializeComponent();
 
-            ClientSize = new Size(guiData.GameFrameSize.Width, guiData.GameFrameSize.Height + guiData.GameFrameInterfaceHeight);
+            ClientSize = GUIData.WindowSize;
 
             graphics = this.CreateGraphics();
 

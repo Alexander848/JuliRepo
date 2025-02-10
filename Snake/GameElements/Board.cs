@@ -8,13 +8,16 @@ namespace SnakeGame.GameElements
     {
         public GameElement[][] boardElements { get; set; }
         private GUIData guiData = new GUIData();
+        private Size boardsizeInElements = new Size(40, 20);
+        private Size interfaceInElements = new Size(40, 3);
 
         public Board()
         {
-            boardElements = new GameElement[guiData.GameFrameSize.Width / guiData.GetStandartRectangleWidth()][];
+            boardElements = new GameElement[boardsizeInElements.Width][];
             for (int i = 0; i < boardElements.Length; i++)
             {
-                boardElements[i] = new GameElement[guiData.GameFrameSize.Height / guiData.GetStandartRectangleHeight()];
+                //boardElements[i] = new GameElement[guiData.GameFrameSize.Height / guiData.GetStandartRectangleHeight()];
+                boardElements[i] = new GameElement[boardsizeInElements.Height];
 
                 for (int j = 0; j < boardElements[i].Length; j++)
                 {
@@ -100,6 +103,10 @@ namespace SnakeGame.GameElements
 
         public void DrawBoard(Graphics graphics)
         {
+            // Board has a height dividable by 23. 20 Parts game, 3 parts interface
+            int totalHeightInElements = boardsizeInElements.Height + interfaceInElements.Height;
+            Size rectangleSize = new Size(GUIData.WindowSize.Width / boardsizeInElements.Width, GUIData.WindowSize.Height / totalHeightInElements);
+
             for (int i = 0; i < this.boardElements.Length; i++)
             {
                 for (int j = 0; j < this.boardElements[i].Length; j++)
@@ -109,23 +116,23 @@ namespace SnakeGame.GameElements
                     {
                         if (element.GetType() == typeof(EmptyArea))
                         {
-                            graphics.FillRectangle(guiData.WhiteBrush, i * guiData.GetStandartRectangleWidth(), j * guiData.GetStandartRectangleWidth(),
-                                guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                            graphics.FillRectangle(guiData.WhiteBrush, i * rectangleSize.Width, j * rectangleSize.Height,
+                                rectangleSize.Width, rectangleSize.Height);
                         }
                         else if (element.GetType() == typeof(Rock))
                         {
-                            graphics.FillRectangle(guiData.GreyBrush, i * guiData.GetStandartRectangleWidth(), j * guiData.GetStandartRectangleWidth(),
-                                guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                            graphics.FillRectangle(guiData.GreyBrush, i * rectangleSize.Width, j * rectangleSize.Height,
+                                rectangleSize.Width, rectangleSize.Height);
                         }
                         else if (element.GetType() == typeof(SnakeBodyPart))
                         {
-                            graphics.FillRectangle(guiData.BlueBrush, i * guiData.GetStandartRectangleWidth(), j * guiData.GetStandartRectangleWidth(),
-                                guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                            graphics.FillRectangle(guiData.BlueBrush, i * rectangleSize.Width, j * rectangleSize.Height,
+                                rectangleSize.Width, rectangleSize.Height);
                         }
                         else if (element.GetType() == typeof(Food))
                         {
-                            graphics.FillRectangle(guiData.RedBrush, i * guiData.GetStandartRectangleWidth(), j * guiData.GetStandartRectangleWidth(),
-                                guiData.GetStandartRectangleWidth(), guiData.GetStandartRectangleHeight());
+                            graphics.FillRectangle(guiData.RedBrush, i * rectangleSize.Width, j * rectangleSize.Height,
+                                rectangleSize.Width, rectangleSize.Height);
                         }
                     }
                 }

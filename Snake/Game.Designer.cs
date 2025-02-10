@@ -36,9 +36,8 @@
             // lblScoreName
             // 
             lblScoreName.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScoreName.Size = new Size(guiData.GameFrameSize.Width / 5, 2*(guiData.GameFrameInterfaceHeight /3));
-            lblScoreName.Location = new Point(guiData.GameFrameSize.Width / 10, guiData.GameFrameSize.Height
-                + guiData.GameFrameInterfaceHeight /2 - lblScoreName.Size.Height / 2);
+            lblScoreName.Size = new Size(guiData.GameFrameSize.Width / 5, (GUIData.WindowSize.Height / 23) * 2);
+            lblScoreName.Location = new Point(guiData.GameFrameSize.Width / 10, (GUIData.WindowSize.Height/46) * 41);
             lblScoreName.Name = "lblScoreName";
             lblScoreName.TabIndex = 0;
             lblScoreName.Text = "Score";
@@ -47,9 +46,8 @@
             // lblScoreValue
             // 
             lblScoreValue.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblScoreValue.Size = new Size(guiData.GameFrameSize.Width / 10, 2*(guiData.GameFrameInterfaceHeight /3));
-            lblScoreValue.Location = new Point(3*(guiData.GameFrameSize.Width / 10), guiData.GameFrameSize.Height
-                + guiData.GameFrameInterfaceHeight / 2 - lblScoreValue.Size.Height/2);
+            lblScoreValue.Size = new Size(guiData.GameFrameSize.Width / 10, (GUIData.WindowSize.Height / 23) * 2);
+            lblScoreValue.Location = new Point(3*(guiData.GameFrameSize.Width / 10), (GUIData.WindowSize.Height / 46) * 41);
             lblScoreValue.Name = "lblScoreValue";
             lblScoreValue.TabIndex = 1;
             lblScoreValue.Text = "0";
@@ -58,9 +56,8 @@
             // btnPause
             // 
             btnPause.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnPause.Size = new Size(guiData.GameFrameSize.Width / 5, 2*(guiData.GameFrameInterfaceHeight/3));
-            btnPause.Location = new Point(7*(guiData.GameFrameSize.Width / 10), guiData.GameFrameSize.Height
-                + guiData.GameFrameInterfaceHeight / 2 - btnPause.Size.Height/2);
+            btnPause.Size = new Size(guiData.GameFrameSize.Width / 5, (GUIData.WindowSize.Height/23) * 2);
+            btnPause.Location = new Point(7*(guiData.GameFrameSize.Width / 10), (GUIData.WindowSize.Height / 46) * 41);
             btnPause.Name = "btnPause";
             btnPause.TabIndex = 2;
             btnPause.Text = "Pause";
