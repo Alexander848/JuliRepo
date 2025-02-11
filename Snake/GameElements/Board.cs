@@ -106,15 +106,7 @@ namespace SnakeGame.GameElements
             // Board has a height dividable by 23. 20 Parts game, 3 parts interface
             int totalHeightInElements = boardsizeInElements.Height + interfaceInElements.Height;
 
-            Size rectangleSize;
-            if (GUIData.FullScreen)
-            {
-                rectangleSize = new Size(screenBounds.Width / boardsizeInElements.Width, screenBounds.Height / totalHeightInElements);
-            } 
-            else
-            {
-                rectangleSize = new Size(GUIData.WindowSize.Width / boardsizeInElements.Width, GUIData.WindowSize.Height / totalHeightInElements);
-            }
+            Size rectangleSize = new Size(GUIData.WindowSize.Width / boardsizeInElements.Width, GUIData.WindowSize.Height / totalHeightInElements);
 
             for (int i = 0; i < this.boardElements.Length; i++)
             {

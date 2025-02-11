@@ -88,7 +88,6 @@ namespace SnakeGame
             board.PlaceSnake();
             board.PlaceFood(snake);
             board.DrawBoard(graphics, Screen.FromControl(this).Bounds);
-            PlaceInterface();
         }
 
         // Event that occurs every time the timer sets off an event
@@ -150,24 +149,6 @@ namespace SnakeGame
         private void btnPause_Click(object sender, EventArgs e)
         {
             PauseGame();
-        }
-
-        private void PlaceInterface()
-        {
-            Rectangle screenBounds = Screen.FromControl(this).Bounds;
-
-            if (GUIData.FullScreen)
-            {
-                lblScoreName.Location = new Point(screenBounds.Width / 10, (screenBounds.Height / 46) * 42);
-                lblScoreValue.Location = new Point(3 * (screenBounds.Width / 10), (screenBounds.Height / 46) * 42);
-                btnPause.Location = new Point(7 * (screenBounds.Width / 10), (screenBounds.Height / 46) * 42);
-            } 
-            else
-            {
-                lblScoreName.Location = new Point(guiData.GameFrameSize.Width / 10, (GUIData.WindowSize.Height / 46) * 41);
-                lblScoreValue.Location = new Point(3 * (guiData.GameFrameSize.Width / 10), (GUIData.WindowSize.Height / 46) * 41);
-                btnPause.Location = new Point(7 * (guiData.GameFrameSize.Width / 10), (GUIData.WindowSize.Height / 46) * 41);
-            }
         }
     }
 }

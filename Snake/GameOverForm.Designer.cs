@@ -33,43 +33,47 @@
             lblGameOver = new Label();
             SuspendLayout();
             // 
-            // btnMainMenu
+            // lblGameOver
             // 
-            btnMainMenu.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMainMenu.Location = new Point(158, 163);
-            btnMainMenu.Name = "btnMainMenu";
-            btnMainMenu.Size = new Size(169, 65);
-            btnMainMenu.TabIndex = 5;
-            btnMainMenu.Text = "Main Menu";
-            btnMainMenu.UseVisualStyleBackColor = true;
-            btnMainMenu.Click += btnMainMenu_Click;
+            lblGameOver.AutoSize = false;
+            lblGameOver.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGameOver.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height / 40);
+            lblGameOver.Name = "lblGameOver";
+            lblGameOver.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
+            lblGameOver.TabIndex = 3;
+            lblGameOver.Text = "Game Over";
+            lblGameOver.Font = new Font(lblGameOver.Font.FontFamily, GUIData.WindowSize.Height / 18, FontStyle.Bold);
+            lblGameOver.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnNewGame
             // 
             btnNewGame.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNewGame.Location = new Point(158, 92);
+            btnNewGame.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 14 / 40);
             btnNewGame.Name = "btnNewGame";
-            btnNewGame.Size = new Size(169, 65);
+            btnNewGame.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
             btnNewGame.TabIndex = 4;
             btnNewGame.Text = "New Game";
+            btnNewGame.Font = new Font(btnNewGame.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
             btnNewGame.UseVisualStyleBackColor = true;
             btnNewGame.Click += btnNewGame_Click;
             // 
-            // lblGameOver
+            // btnMainMenu
             // 
-            lblGameOver.AutoSize = true;
-            lblGameOver.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblGameOver.Location = new Point(148, 21);
-            lblGameOver.Name = "lblGameOver";
-            lblGameOver.Size = new Size(186, 45);
-            lblGameOver.TabIndex = 3;
-            lblGameOver.Text = "Game Over";
+            btnMainMenu.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnMainMenu.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 27 / 40);
+            btnMainMenu.Name = "btnMainMenu";
+            btnMainMenu.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
+            btnMainMenu.TabIndex = 5;
+            btnMainMenu.Text = "Main Menu";
+            btnMainMenu.Font = new Font(btnMainMenu.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+            btnMainMenu.UseVisualStyleBackColor = true;
+            btnMainMenu.Click += btnMainMenu_Click;
             // 
             // GameOverForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(guiData.GameFrameSize.Width, guiData.GameFrameSize.Height);
+            ClientSize = GUIData.WindowSize;
             Controls.Add(btnMainMenu);
             Controls.Add(btnNewGame);
             Controls.Add(lblGameOver);

@@ -28,40 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblGamePaused = new Label();
             btnContinue = new Button();
             btnMainMenu = new Button();
             SuspendLayout();
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(125, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(221, 45);
-            label1.TabIndex = 0;
-            label1.Text = "Game Paused";
+            lblGamePaused.AutoSize = false;
+            lblGamePaused.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGamePaused.Location = new Point(guiData.GetPauseFormFrameWidth() / 40, guiData.GetPauseFormFrameHeight() / 40);
+            lblGamePaused.Name = "label1";
+            lblGamePaused.Size = new Size(guiData.GetPauseFormFrameWidth() - (guiData.GetPauseFormFrameWidth() / 20), guiData.GetPauseFormFrameHeight() * 12 / 40);
+            lblGamePaused.TabIndex = 0;
+            lblGamePaused.Text = "Game Paused";
+            lblGamePaused.Font = new Font(lblGamePaused.Font.FontFamily, guiData.GetPauseFormFrameHeight() / 18, FontStyle.Bold);
+            lblGamePaused.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnContinue
             // 
             btnContinue.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnContinue.Location = new Point(153, 84);
+            btnContinue.Location = new Point(guiData.GetPauseFormFrameWidth() / 40, guiData.GetPauseFormFrameHeight() * 14 / 40);
             btnContinue.Name = "btnContinue";
-            btnContinue.Size = new Size(169, 65);
+            btnContinue.Size = new Size(guiData.GetPauseFormFrameWidth() - (guiData.GetPauseFormFrameWidth() / 20), guiData.GetPauseFormFrameHeight() * 12 / 40);
             btnContinue.TabIndex = 1;
             btnContinue.Text = "Continue";
+            btnContinue.Font = new Font(btnContinue.Font.FontFamily, guiData.GetPauseFormFrameHeight() / 27, FontStyle.Bold);
             btnContinue.UseVisualStyleBackColor = true;
             btnContinue.Click += btnContinue_Click;
             // 
             // btnMainMenu
             // 
             btnMainMenu.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnMainMenu.Location = new Point(153, 155);
+            btnMainMenu.Location = new Point(guiData.GetPauseFormFrameWidth() / 40, guiData.GetPauseFormFrameHeight() * 27 / 40);
             btnMainMenu.Name = "btnMainMenu";
-            btnMainMenu.Size = new Size(169, 65);
+            btnMainMenu.Size = new Size(guiData.GetPauseFormFrameWidth() - (guiData.GetPauseFormFrameWidth() / 20), guiData.GetPauseFormFrameHeight() * 12 / 40);
             btnMainMenu.TabIndex = 2;
             btnMainMenu.Text = "Main Menu";
+            btnMainMenu.Font = new Font(btnMainMenu.Font.FontFamily, guiData.GetPauseFormFrameHeight() / 27, FontStyle.Bold);
             btnMainMenu.UseVisualStyleBackColor = true;
             btnMainMenu.Click += btnMainMenu_Click;
             // 
@@ -72,17 +76,18 @@
             ClientSize = new Size(guiData.GetPauseFormFrameWidth(), guiData.GetPauseFormFrameHeight());
             Controls.Add(btnMainMenu);
             Controls.Add(btnContinue);
-            Controls.Add(label1);
+            Controls.Add(lblGamePaused);
             Name = "PauseForm";
             Text = "Pause";
             Load += PauseForm_Load;
+            Activated += PauseForm_Activated;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Label lblGamePaused;
         private Button btnContinue;
         private Button btnMainMenu;
     }

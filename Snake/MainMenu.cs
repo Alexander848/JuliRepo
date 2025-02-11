@@ -40,6 +40,8 @@ namespace SnakeGame
                 this.ClientSize = GUIData.WindowSize;
                 this.CenterToScreen();
             }
+
+            SetButtonLayout();
         }
 
         private void MainMenu_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,9 +53,29 @@ namespace SnakeGame
         {
             // Reset fullscreen (whilst hidden)
             this.WindowState = FormWindowState.Normal;
-            
+
             settingsForm.Show();
             this.Hide();
+        }
+
+        private void btn_exit_game_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void SetButtonLayout()
+        {
+            btnStartGame.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height / 40);
+            btnStartGame.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
+            btnStartGame.Font = new Font(btnExitGame.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+
+            btnSettings.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 14 / 40);
+            btnSettings.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
+            btnSettings.Font = new Font(btnExitGame.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+
+            btnExitGame.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 27 / 40);
+            btnExitGame.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 12 / 40);
+            btnExitGame.Font = new Font(btnExitGame.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
         }
     }
 }

@@ -30,6 +30,8 @@ namespace SnakeGame
                 this.ClientSize = new Size(GUIData.WindowSize.Width, GUIData.WindowSize.Height);
                 this.CenterToScreen();
             }
+
+            SetButtonLayout();
         }
 
         private void btnDiffEasy_Click(object sender, EventArgs e)
@@ -72,6 +74,29 @@ namespace SnakeGame
 
             mainMenu.Show();
             this.Hide();
+        }
+
+        private void SetButtonLayout()
+        {
+            lblSelectDiff.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height / 40);
+            lblSelectDiff.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 9 / 40);
+            lblSelectDiff.Font = new Font(lblSelectDiff.Font.FontFamily, GUIData.WindowSize.Height / 18, FontStyle.Bold);
+
+            btnDiffEasy.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 22 / 80);
+            btnDiffEasy.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
+            btnDiffEasy.Font = new Font(btnDiffEasy.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+
+            btnDiffMedium.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 36 / 80);
+            btnDiffMedium.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
+            btnDiffMedium.Font = new Font(btnDiffMedium.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+
+            btnDiffHard.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 50 / 80);
+            btnDiffHard.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
+            btnDiffHard.Font = new Font(btnDiffHard.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
+
+            btnBack.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 64 / 80);
+            btnBack.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
+            btnBack.Font = new Font(btnBack.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
         }
     }
 }

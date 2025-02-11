@@ -37,56 +37,61 @@
             // 
             // lblSelectDiff
             // 
-            lblSelectDiff.AutoSize = true;
+            lblSelectDiff.AutoSize = false;
             lblSelectDiff.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblSelectDiff.Location = new Point(52, 19);
+            lblSelectDiff.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height / 40);
             lblSelectDiff.Name = "lblSelectDiff";
-            lblSelectDiff.Size = new Size(185, 30);
+            lblSelectDiff.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 9 / 40);
             lblSelectDiff.TabIndex = 0;
             lblSelectDiff.Text = "Select a Difficulty";
+            lblSelectDiff.Font = new Font(lblSelectDiff.Font.FontFamily, GUIData.WindowSize.Height / 18, FontStyle.Bold);
             lblSelectDiff.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // btnDiffEasy
             // 
             btnDiffEasy.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDiffEasy.Location = new Point(74, 69);
+            btnDiffEasy.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 22 / 80);
             btnDiffEasy.Name = "btnDiffEasy";
-            btnDiffEasy.Size = new Size(135, 39);
+            btnDiffEasy.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
             btnDiffEasy.TabIndex = 1;
             btnDiffEasy.Text = "Easy";
+            btnDiffEasy.Font = new Font(btnDiffEasy.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
             btnDiffEasy.UseVisualStyleBackColor = true;
             btnDiffEasy.Click += btnDiffEasy_Click;
             // 
             // btnDiffMedium
             // 
             btnDiffMedium.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDiffMedium.Location = new Point(74, 124);
+            btnDiffMedium.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 36 / 80);
             btnDiffMedium.Name = "btnDiffMedium";
-            btnDiffMedium.Size = new Size(135, 39);
+            btnDiffMedium.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
             btnDiffMedium.TabIndex = 2;
             btnDiffMedium.Text = "Medium";
+            btnDiffMedium.Font = new Font(btnDiffMedium.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
             btnDiffMedium.UseVisualStyleBackColor = true;
             btnDiffMedium.Click += btnDiffMedium_Click;
             // 
             // btnDiffHard
             // 
             btnDiffHard.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnDiffHard.Location = new Point(74, 178);
+            btnDiffHard.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 50 / 80);
             btnDiffHard.Name = "btnDiffHard";
-            btnDiffHard.Size = new Size(135, 39);
+            btnDiffHard.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
             btnDiffHard.TabIndex = 3;
             btnDiffHard.Text = "Hard";
+            btnDiffHard.Font = new Font(btnDiffHard.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
             btnDiffHard.UseVisualStyleBackColor = true;
             btnDiffHard.Click += btnDiffHard_Click;
             // 
             // btnBack
             // 
             btnBack.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnBack.Location = new Point(74, 232);
+            btnBack.Location = new Point(GUIData.WindowSize.Width / 40, GUIData.WindowSize.Height * 64 / 80);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(135, 39);
+            btnBack.Size = new Size(GUIData.WindowSize.Width - (GUIData.WindowSize.Width / 20), GUIData.WindowSize.Height * 6 / 40);
             btnBack.TabIndex = 4;
             btnBack.Text = "Back";
+            btnBack.Font = new Font(btnBack.Font.FontFamily, GUIData.WindowSize.Height / 27, FontStyle.Bold);
             btnBack.UseVisualStyleBackColor = true;
             btnBack.Click += btnBack_Click;
             // 
